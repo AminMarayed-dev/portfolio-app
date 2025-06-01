@@ -1,0 +1,8 @@
+This is a placeholder for your resume PDF.
+
+To create a proper resume PDF file:
+1. Open the resume-template.html file in your browser
+2. Print it as PDF (using your browser's print functionality)
+3. Save it as resume.pdf in this folder
+
+For more details, see README_RESUME.md in this directory. 

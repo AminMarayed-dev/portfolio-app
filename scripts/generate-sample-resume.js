@@ -1,0 +1,144 @@
+const fs = require("fs");
+const path = require("path");
+
+// Simple HTML template for a resume
+const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample Resume</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #4ade80;
+      border-bottom: 2px solid #4ade80;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #333;
+      margin-top: 20px;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .contact {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .experience {
+      margin-bottom: 15px;
+    }
+    .experience h3 {
+      margin-bottom: 5px;
+    }
+    .experience p {
+      margin: 5px 0;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .skill {
+      background-color: #f0f0f0;
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Name</h1>
+  <div class="contact">
+    yourname@example.com | github.com/yourusername | linkedin.com/in/yourusername
+  </div>
+  
+  <div class="section">
+    <h2>Summary</h2>
+    <p>Frontend developer with expertise in React, Next.js, and modern web technologies. Passionate about creating elegant and performant web applications with clean code and pixel-perfect design.</p>
+  </div>
+  
+  <div class="section">
+    <h2>Experience</h2>
+    
+    <div class="experience">
+      <h3>Senior Frontend Developer - TechCorp</h3>
+      <p>May 2023 - Present</p>
+      <ul>
+        <li>Led development of responsive web applications using React and Next.js</li>
+        <li>Optimized performance resulting in 40% faster load times</li>
+        <li>Collaborated with design team to implement pixel-perfect UIs</li>
+      </ul>
+    </div>
+    
+    <div class="experience">
+      <h3>Frontend Developer - WebSolutions</h3>
+      <p>January 2022 - April 2023</p>
+      <ul>
+        <li>Developed e-commerce platforms with modern JavaScript frameworks</li>
+        <li>Implemented state management solutions with Redux</li>
+        <li>Created reusable component libraries for team use</li>
+      </ul>
+    </div>
+    
+    <div class="experience">
+      <h3>Junior Developer - StartupInc</h3>
+      <p>June 2020 - December 2021</p>
+      <ul>
+        <li>Built and maintained company website and client projects</li>
+        <li>Participated in agile development process</li>
+        <li>Optimized websites for SEO and accessibility</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong>BSc Computer Science</strong> - University of Technology (2016-2020)</p>
+    <p><strong>Web Development Certification</strong> - Tech Academy (2019)</p>
+  </div>
+  
+  <div class="section">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">React</div>
+      <div class="skill">Next.js</div>
+      <div class="skill">TypeScript</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">HTML/CSS</div>
+      <div class="skill">Tailwind CSS</div>
+      <div class="skill">Redux</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Express</div>
+      <div class="skill">MongoDB</div>
+      <div class="skill">PostgreSQL</div>
+      <div class="skill">Git</div>
+      <div class="skill">Figma</div>
+      <div class="skill">Jest</div>
+    </div>
+  </div>
+</body>
+</html>
+`;
+
+// Function to generate HTML placeholder file
+function generatePlaceholderResume() {
+  const filePath = path.join(__dirname, "..", "public", "resume-template.html");
+
+  fs.writeFileSync(filePath, htmlContent, "utf8");
+
+  console.log("Sample resume HTML created at:", filePath);
+  console.log(
+    "Note: For a real PDF, you'd need to convert this HTML using a library like puppeteer"
+  );
+  console.log(
+    "For now, please add a real PDF file to public/resume.pdf manually"
+  );
+}
+
+// Execute
+generatePlaceholderResume();
