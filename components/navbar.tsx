@@ -265,6 +265,7 @@ export function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
+            {/* Overlay background */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -274,26 +275,36 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             />
 
+            {/* Drawer that follows scroll position */}
             <motion.div
               ref={menuRef}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-16 right-0 bottom-0 w-4/5 max-w-xs bg-black border-l border-green-500/20 p-6 z-50 overflow-y-auto"
+              className="fixed right-0 w-4/5 max-w-xs bg-black border-l border-green-500/20 p-6 z-50"
+              style={{
+                top: "64px", // Fixed at navbar height
+                maxHeight: "calc(100vh - 64px)",
+                overflowY: "auto",
+                display: "flex",
+                flexDirection: "column",
+              }}
             >
-              <div className="flex flex-col space-y-2">
+              {/* Menu content */}
+              <div className="flex flex-col space-y-3">
                 {navLinks.map(([title, url], index) => (
                   <motion.div
                     key={title}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
+                    className="py-1"
                   >
                     <Link
                       href={url}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center py-3 px-2 text-base font-mono text-gray-300 hover:text-green-400 transition-colors relative border-b border-green-500/10 group"
+                      className="flex items-center py-2 px-2 text-base font-mono text-gray-300 hover:text-green-400 transition-colors relative border-b border-green-500/10 group"
                     >
                       <span className="text-green-500 mr-3 opacity-60">$</span>
                       <span>{title}</span>
@@ -310,11 +321,11 @@ export function Navbar() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="mt-4"
+                  className="mt-2"
                 >
                   <Button
                     variant="outline"
-                    className="w-full mt-2 font-mono text-sm border-green-500 text-green-500 hover:bg-green-500/10"
+                    className="w-full font-mono text-sm border-green-500 text-green-500 hover:bg-green-500/10"
                     onClick={() => {
                       handleResumeDownload();
                       setMobileMenuOpen(false);
@@ -371,7 +382,7 @@ export function Navbar() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="mt-8 pt-4 border-t border-green-500/10 text-xs text-gray-500 font-mono"
+                  className="mt-3 pt-3 border-t border-green-500/10 text-xs text-gray-500 font-mono"
                 >
                   <p className="flex items-center mb-2">
                     <span className="text-green-500 mr-2">$</span>
@@ -379,7 +390,7 @@ export function Navbar() {
                       contact@aminmarayed.com
                     </span>
                   </p>
-                  <div className="flex space-x-4 mt-4 justify-center">
+                  <div className="flex space-x-4 mt-3 justify-center">
                     <a
                       href="https://github.com"
                       target="_blank"
