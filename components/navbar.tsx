@@ -46,7 +46,7 @@ export function Navbar() {
       setIsDownloading(true);
 
       // Replace with your actual resume file path
-      const resumeUrl = "/amin_marayed.pdf";
+      const resumeUrl = "/edit-amin-marayed.pdf";
 
       // Fetch the file to check if it exists
       const response = await fetch(resumeUrl);
@@ -64,7 +64,7 @@ export function Navbar() {
       // Create a link element
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "amin_marayed.pdf");
+      link.setAttribute("download", "edit-amin-marayed.pdf");
 
       // Append to the document, click, and remove
       document.body.appendChild(link);
